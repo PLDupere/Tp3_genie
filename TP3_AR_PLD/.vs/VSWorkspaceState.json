@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Clean.Core",
+    "\\Clean.Core\\Interfaces",
+    "\\Clean.Infrastructure",
+    "\\Clean.Infrastructure\\Repositories"
+  ],
+  "SelectedNode": "\\Clean.Infrastructure\\Repositories\\CalculVersementsRepository.cs",
+  "PreviewInSolutionExplorer": false
+}

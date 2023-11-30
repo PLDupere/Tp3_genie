@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Clean.Core/1.0.0": {
+        "dependencies": {
+          "Clean.SharedKernel": "1.0.0"
+        },
+        "runtime": {
+          "Clean.Core.dll": {}
+        }
+      },
+      "Clean.SharedKernel/1.0.0": {
+        "runtime": {
+          "Clean.SharedKernel.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Clean.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Clean.SharedKernel/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

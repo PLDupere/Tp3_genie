@@ -1,0 +1,5 @@
+C:\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.csproj.AssemblyReference.cache
+C:\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.AssemblyInfoInputs.cache
+C:\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.AssemblyInfo.cs
+C:\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.csproj.CoreCompileInputs.cache

@@ -1,0 +1,15 @@
+C:\TP3_AR_PLD\Clean.Core\bin\Debug\net6.0\Clean.Core.deps.json
+C:\TP3_AR_PLD\Clean.Core\bin\Debug\net6.0\Clean.Core.dll
+C:\TP3_AR_PLD\Clean.Core\bin\Debug\net6.0\Clean.Core.pdb
+C:\TP3_AR_PLD\Clean.Core\bin\Debug\net6.0\Clean.SharedKernel.dll
+C:\TP3_AR_PLD\Clean.Core\bin\Debug\net6.0\Clean.SharedKernel.pdb
+C:\TP3_AR_PLD\Clean.Core\obj\Debug\net6.0\Clean.Core.csproj.AssemblyReference.cache
+C:\TP3_AR_PLD\Clean.Core\obj\Debug\net6.0\Clean.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\TP3_AR_PLD\Clean.Core\obj\Debug\net6.0\Clean.Core.AssemblyInfoInputs.cache
+C:\TP3_AR_PLD\Clean.Core\obj\Debug\net6.0\Clean.Core.AssemblyInfo.cs
+C:\TP3_AR_PLD\Clean.Core\obj\Debug\net6.0\Clean.Core.csproj.CoreCompileInputs.cache
+C:\TP3_AR_PLD\Clean.Core\obj\Debug\net6.0\Clean.Core.csproj.CopyComplete
+C:\TP3_AR_PLD\Clean.Core\obj\Debug\net6.0\Clean.Core.dll
+C:\TP3_AR_PLD\Clean.Core\obj\Debug\net6.0\refint\Clean.Core.dll
+C:\TP3_AR_PLD\Clean.Core\obj\Debug\net6.0\Clean.Core.pdb
+C:\TP3_AR_PLD\Clean.Core\obj\Debug\net6.0\ref\Clean.Core.dll

@@ -1,0 +1,12 @@
+C:\TP3_AR_PLD\Clean.SharedKernel\bin\Debug\net6.0\Clean.SharedKernel.deps.json
+C:\TP3_AR_PLD\Clean.SharedKernel\bin\Debug\net6.0\Clean.SharedKernel.dll
+C:\TP3_AR_PLD\Clean.SharedKernel\bin\Debug\net6.0\Clean.SharedKernel.pdb
+C:\TP3_AR_PLD\Clean.SharedKernel\obj\Debug\net6.0\Clean.SharedKernel.csproj.AssemblyReference.cache
+C:\TP3_AR_PLD\Clean.SharedKernel\obj\Debug\net6.0\Clean.SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+C:\TP3_AR_PLD\Clean.SharedKernel\obj\Debug\net6.0\Clean.SharedKernel.AssemblyInfoInputs.cache
+C:\TP3_AR_PLD\Clean.SharedKernel\obj\Debug\net6.0\Clean.SharedKernel.AssemblyInfo.cs
+C:\TP3_AR_PLD\Clean.SharedKernel\obj\Debug\net6.0\Clean.SharedKernel.csproj.CoreCompileInputs.cache
+C:\TP3_AR_PLD\Clean.SharedKernel\obj\Debug\net6.0\Clean.SharedKernel.dll
+C:\TP3_AR_PLD\Clean.SharedKernel\obj\Debug\net6.0\refint\Clean.SharedKernel.dll
+C:\TP3_AR_PLD\Clean.SharedKernel\obj\Debug\net6.0\Clean.SharedKernel.pdb
+C:\TP3_AR_PLD\Clean.SharedKernel\obj\Debug\net6.0\ref\Clean.SharedKernel.dll
