@@ -9,14 +9,17 @@ using System.Threading.Tasks;
 
 namespace Clean.Infrastructure.Repositories
 {
-    public class DemandeAideFinancieresRepository : EfRepository<CalculVersements>, ICalculVersementsRepository
+    public class DemandeAideFinancieresRepository : EfRepository<DemandeAideFinancieres>, IDemandeAideFinancieresRepository
     {
         public DemandeAideFinancieresRepository(CleanContext cleanContext) : base(cleanContext)
         {
         }
-        public CalculVersements GetByIdWithDemandeAideFinancieres(int id)
+
+        public DemandeAideFinancieres GetByIdWithDemandeAideFinancieres(int id)
         {
-            throw new NotImplementedException();
+            return _CleanContext.DemandeAideFinanciere
+            .Include(r => r.Id)
+            .First();
         }
     }
 }

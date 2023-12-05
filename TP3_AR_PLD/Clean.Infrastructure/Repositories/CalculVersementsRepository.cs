@@ -15,9 +15,13 @@ namespace Clean.Infrastructure.Repositories
         public CalculVersementsRepository(CleanContext cleanContext) : base(cleanContext)
         {
         }
-        public CalculVersements GetByIdWithDemandeAideFinancieres(int id)
+
+        public CalculVersements GetByIdWithCalculVersements(int id)
         {
-            throw new NotImplementedException();
+            return _CleanContext.CalculVersements
+             .Include(r => r.Id)
+             .First();
         }
+
     }
 }

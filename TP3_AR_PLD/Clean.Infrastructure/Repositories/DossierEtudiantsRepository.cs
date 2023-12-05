@@ -9,15 +9,17 @@ using System.Threading.Tasks;
 
 namespace Clean.Infrastructure.Repositories
 {
-    public class DossierEtudiantsRepository : EfRepository<Etudiants>, IEtudiantsRepository
+    public class DossierEtudiantsRepository : EfRepository<DossierEtudiants>, IDossierEtudiantsRepository
     {
         public DossierEtudiantsRepository(CleanContext cleanContext) : base(cleanContext)
         {
         }
 
-        public Etudiants GetByIdDossierEtudiants(int id)
+        public DossierEtudiants GetByIdWithDossierEtudiants(int id)
         {
-            throw new NotImplementedException();
+            return _CleanContext.DossierEtudiants
+          .Include(r => r.Id)
+          .First();
         }
     }
 }

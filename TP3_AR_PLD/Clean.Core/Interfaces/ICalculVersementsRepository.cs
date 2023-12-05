@@ -10,6 +10,6 @@ namespace Clean.Core.Interfaces
 {
     public interface ICalculVersementsRepository : IRepository<CalculVersements>
     {
-        CalculVersements GetByIdWithDemandeAideFinancieres(int id);
+        CalculVersements GetByIdWithCalculVersements(int id);
     }
 }

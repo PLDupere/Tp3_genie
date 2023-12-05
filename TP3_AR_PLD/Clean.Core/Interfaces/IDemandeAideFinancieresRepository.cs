@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace Clean.Core.Interfaces
 {
-    public interface IDemandeAideFinancieresRepository : IAsyncRepository<DemandeAideFinancieres>, IRepository<DemandeAideFinancieres>
+    public interface IDemandeAideFinancieresRepository : IRepository<DemandeAideFinancieres>
     {
-        DemandeAideFinancieres GetByIdWithEtudiants(int id);
+        DemandeAideFinancieres GetByIdWithDemandeAideFinancieres(int id);
     }
 }

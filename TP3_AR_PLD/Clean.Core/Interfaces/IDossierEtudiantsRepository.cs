@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace Clean.Core.Interfaces
 {
-    internal interface IDossierEtudiantsRepository : IAsyncRepository<DossierEtudiants>, IRepository<DossierEtudiants>
+    public interface IDossierEtudiantsRepository : IRepository<DossierEtudiants>
     {
-        DossierEtudiants GetByIdWithEtudiants(int id);
+        DossierEtudiants GetByIdWithDossierEtudiants(int id);
     }
 }
