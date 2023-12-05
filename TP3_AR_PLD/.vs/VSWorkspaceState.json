@@ -1,11 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Clean.Core",
-    "\\Clean.Core\\Interfaces",
+    "\\Clean.Console",
+    "\\Clean.Core\\Entities",
+    "\\Clean.Core\\Specifications",
     "\\Clean.Infrastructure",
     "\\Clean.Infrastructure\\Repositories"
   ],
-  "SelectedNode": "\\Clean.Infrastructure\\Repositories\\CalculVersementsRepository.cs",
+  "SelectedNode": "\\TP3_AR_PLD.sln",
   "PreviewInSolutionExplorer": false
 }

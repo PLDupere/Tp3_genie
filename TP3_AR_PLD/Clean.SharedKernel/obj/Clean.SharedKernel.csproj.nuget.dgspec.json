@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\TP3_AR_PLD\\Clean.SharedKernel\\Clean.SharedKernel.csproj": {}
+    "C:\\Users\\pierl\\Documents\\GitPLD\\Tp3_genie\\TP3_AR_PLD\\Clean.SharedKernel\\Clean.SharedKernel.csproj": {}
   },
   "projects": {
-    "C:\\TP3_AR_PLD\\Clean.SharedKernel\\Clean.SharedKernel.csproj": {
+    "C:\\Users\\pierl\\Documents\\GitPLD\\Tp3_genie\\TP3_AR_PLD\\Clean.SharedKernel\\Clean.SharedKernel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\TP3_AR_PLD\\Clean.SharedKernel\\Clean.SharedKernel.csproj",
+        "projectUniqueName": "C:\\Users\\pierl\\Documents\\GitPLD\\Tp3_genie\\TP3_AR_PLD\\Clean.SharedKernel\\Clean.SharedKernel.csproj",
         "projectName": "Clean.SharedKernel",
-        "projectPath": "C:\\TP3_AR_PLD\\Clean.SharedKernel\\Clean.SharedKernel.csproj",
+        "projectPath": "C:\\Users\\pierl\\Documents\\GitPLD\\Tp3_genie\\TP3_AR_PLD\\Clean.SharedKernel\\Clean.SharedKernel.csproj",
         "packagesPath": "C:\\Users\\pierl\\.nuget\\packages\\",
-        "outputPath": "C:\\TP3_AR_PLD\\Clean.SharedKernel\\obj\\",
+        "outputPath": "C:\\Users\\pierl\\Documents\\GitPLD\\Tp3_genie\\TP3_AR_PLD\\Clean.SharedKernel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pierl\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -11,13 +11,13 @@ namespace Clean.Core.Entities
     public class CalculVersements : BaseEntity, IAggregateRoot
     {
         //Attributs
-        public int CalculversementId { get; set; }
+        public int Id { get; set; }
 
         // Clé étrangere
         public int DemandeAideFinanciereId { get; set; }
         public DemandeAideFinancieres DemandeAideFinancieres { get; set; }
 
-    public string AnneeEnCours { get; set; }
+        public string? AnneeEnCours { get; set; }
 
         public int[]? Montants = new int[12]; // 0 = janvier 1 = février ...
 
@@ -26,10 +26,8 @@ namespace Clean.Core.Entities
         public DateTime[]? DateVersement = new DateTime[12]; // 0 = janvier 1 = février ...
 
         //Constructeur
-        public CalculVersements(int id, string anneeEnCours)
+        public CalculVersements()
         {
-            CalculversementId = id;
-            AnneeEnCours = anneeEnCours;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Clean.Core.Entities
 {
     public class DossierEtudiants : BaseEntity, IAggregateRoot
     {
-        public int DossierEtudiantsId { get; set; }
+        public int Id { get; set; }
 
         // Cle etrangere du dossier Etudians
         public int EtudiantsId { get; set; }
@@ -24,9 +24,8 @@ namespace Clean.Core.Entities
         public DateTime? DateObtentionStatusResidentPermanent { get; set; }
         public string? LangueCorrespondance { get; set; }
 
-        public DossierEtudiants(int id)
+        public DossierEtudiants()
         {
-            DossierEtudiantsId = id;
         }
 
     }

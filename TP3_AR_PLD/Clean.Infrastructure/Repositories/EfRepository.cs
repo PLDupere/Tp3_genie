@@ -19,13 +19,13 @@ namespace Clean.Infrastructure.Repositories
             _CleanContext = cleanContext;
         }
 
-        public async Task<T> AddAsync(T entity)
-        {
-            await _CleanContext.Set<T>().AddAsync(entity);
-            await _CleanContext.SaveChangesAsync();
-            return entity;
+        //public async Task<T> AddAsync(T entity)
+        //{
+        //    await _CleanContext.Set<T>().AddAsync(entity);
+        //    await _CleanContext.SaveChangesAsync();
+        //    return entity;
 
-        }
+        //}
 
 
         public T GetById<T>(int id) where T : BaseEntity

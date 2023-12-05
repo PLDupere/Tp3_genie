@@ -17,9 +17,7 @@ namespace Clean.Infrastructure.Repositories
 
         public Etudiants GetByIdDossierEtudiants(int id)
         {
-            return _CleanContext.Etudiants
-              .Include(c => c.EtudiantsId)
-              .FirstOrDefault(c => c.EtudiantsId == id);
+            throw new NotImplementedException();
         }
 
 
