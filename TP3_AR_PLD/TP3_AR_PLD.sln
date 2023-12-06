@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Core", "Clean.Core\Cl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Infrastructure", "Clean.Infrastructure\Clean.Infrastructure.csproj", "{8DCCCE23-211C-40BD-B457-A45A50CB39F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clean.Console", "Clean.Console\Clean.Console.csproj", "{97E3EBE7-BB68-4943-B6B7-3CF22EED76E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clean.Console", "Clean.Console\Clean.Console.csproj", "{97E3EBE7-BB68-4943-B6B7-3CF22EED76E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "Éléments de solution", "{50051B21-9809-4D7F-BF79-36C3427F0021}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
