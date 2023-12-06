@@ -1,5 +1,6 @@
 ﻿
 using Clean.Core.Entities;
+using Clean.Core.Specifications;
 using Clean.Infrastructure;
 using Clean.Infrastructure.Repositories;
 using Clean.SharedKernel.Interfaces;
@@ -15,7 +16,64 @@ static async Task CritereRecherche()
 {
     using (CleanContext context = new CleanContext())
     {
-        // ici ***************************************************************************************************
+        // load etudiant par id
+        IAsyncRepository<Etudiants> repo1 = new EfRepository<Etudiants>(context);
+        RequestByEtudiantsId spec1 = new RequestByEtudiantsId(26);
+        var requests1 = await repo1.ListAsync(spec1);
+        string codepermanentTEST = "";
+        int etudiantIdTEST = 0;
+        int demandeAideFinanciereTEST = 0;
+        Console.WriteLine("Recherche etudiant par id");
+        foreach (Etudiants e in requests1)
+        {
+            Console.WriteLine("EtudiantId= " + e.Id + "   NemeroAssuranceSociale=" + e.NumeroAssuranceSociale + "   CodePermanent=" + e.CodePermanent);
+            codepermanentTEST = e.CodePermanent;
+            Console.WriteLine("- - -");
+        }
+        
+        // load etudiant par code permanent
+        IAsyncRepository<Etudiants> repo2 = new EfRepository<Etudiants>(context);
+        FindEtudiantByCodePermanent spec2 = new FindEtudiantByCodePermanent(codepermanentTEST);
+        var requests2 = await repo2.ListAsync(spec2);
+        Console.WriteLine("Recherche etudiant par code permanent");
+        foreach (Etudiants e in requests2)
+        {
+            Console.WriteLine("EtudiantId= " + e.Id + "NemeroAssuranceSociale=" + e.NumeroAssuranceSociale + "CodePermanent=" + e.CodePermanent);
+            etudiantIdTEST = (int)e.Id;
+            Console.WriteLine("- - -");
+        }
+
+        // load dossier etudiant par id 
+        IAsyncRepository<DossierEtudiants> repo3 = new EfRepository<DossierEtudiants>(context);
+        var requests3 = await repo3.GetByIdAsync(etudiantIdTEST);
+        Console.WriteLine("Recherche dossier etudiant par id de l'étudiant: " + "==>" + etudiantIdTEST + "<==");
+
+        Console.WriteLine(" Numero de dossier = " + requests3.Id + " Numero de l'étudaint " + requests3.EtudiantsId + " Adresse : " + requests3.AdresseCourriel );
+        Console.WriteLine("- - -");
+
+        // load tout les demande d'aide fianciere par etudiant id 
+        IAsyncRepository<DemandeAideFinancieres> repo4 = new EfRepository<DemandeAideFinancieres>(context);
+        FindAllDemandeAideFinanciereByEtudiantId spec4 = new FindAllDemandeAideFinanciereByEtudiantId(etudiantIdTEST);
+        var requests4 = await repo4.ListAsync(spec4);
+        Console.WriteLine("Recherche d aide financiere par etudiant id");
+        foreach (DemandeAideFinancieres d in requests4)
+        {
+            Console.WriteLine("Demande aide finaciere Id = " + d.Id + "Code de l'établissement = " + d.CodeDuProgramme + "Etudiant ID =" + d.EtudiantsId);
+            demandeAideFinanciereTEST = d.Id;
+        }
+        Console.WriteLine("- - -");
+
+        // load tout les calcul de versement par demande d'aide financiere 
+        IAsyncRepository<CalculVersements> repo5 = new EfRepository<CalculVersements>(context);
+        FindCalculVersementByDemandeAideFinanciereID spec5 = new FindCalculVersementByDemandeAideFinanciereID(etudiantIdTEST);
+        var requests5 = await repo5.ListAsync(spec5);
+        Console.WriteLine("Recherche des calcul de versement par demande d aide financire id ==>" + demandeAideFinanciereTEST);
+
+        foreach (CalculVersements c in requests5)
+        {
+            Console.WriteLine("calcul et versementId = " + c.Id + " Monantant = " + c.Montants);
+        }
+        Console.WriteLine("- - -");
     }
 }
 
@@ -44,7 +102,7 @@ static async Task LireDansBDAsync()
 
     // add Etudiant
     DateTime dt = new DateTime(2005, 12, 31);
-    Etudiants etudiants = new Etudiants("Dup","PL","321-432-432", dt, "Q12323", "motDePasse");
+    Etudiants etudiants = new Etudiants("Rioux","A","321-432-432", dt, "CodeP", "motDePasse");
     context.Etudiants.Add(etudiants);
     context.SaveChanges();
     Console.WriteLine("Création d'un étudiant OK");
@@ -52,7 +110,7 @@ static async Task LireDansBDAsync()
 
     // add DossierEtudiant
     DateTime dt2 = new DateTime(2015, 10, 1);
-    DossierEtudiants dossierEtudiants = new DossierEtudiants("1 main streer", "(555) 555-5555", "(434) 221-3232", "qwerty@gmail.com", true, "", dt2, "Français");
+    DossierEtudiants dossierEtudiants = new DossierEtudiants("99 main streer", "(555) 555-5555", "(434) 221-3232", "qwerty@gmail.com", true, "", dt2, "Français");
     // liaison clé
     etudiants.DossierEtudiants = dossierEtudiants;
     context.DossierEtudiants.Add(dossierEtudiants);
@@ -75,11 +133,21 @@ static async Task LireDansBDAsync()
 
     // add CalculVersement
     DateTime dt4 = DateTime.Today;
-    CalculVersements calculVersements = new CalculVersements("2023", 432, "Bourse", dt4);
+    CalculVersements calculVersements1 = new CalculVersements("2023", 100, "Bourse", dt4);
+    CalculVersements calculVersements2 = new CalculVersements("2023", 200, "Bourse", dt4);
+    CalculVersements calculVersements3 = new CalculVersements("2023", 332, "Bourse", dt4);
     // liaison clé
-    calculVersements.DemandeAideFinancieres = demandeAideFinancieres;
-    context.CalculVersements.Add(calculVersements);
-    demandeAideFinancieres.AddCalculVersements(calculVersements);
+    calculVersements1.DemandeAideFinancieres = demandeAideFinancieres;
+    calculVersements2.DemandeAideFinancieres = demandeAideFinancieres;
+    calculVersements3.DemandeAideFinancieres = demandeAideFinancieres;
+
+    context.CalculVersements.Add(calculVersements1);
+    context.CalculVersements.Add(calculVersements2);
+    context.CalculVersements.Add(calculVersements3);
+
+    demandeAideFinancieres.AddCalculVersements(calculVersements1);
+    demandeAideFinancieres.AddCalculVersements(calculVersements2);
+    demandeAideFinancieres.AddCalculVersements(calculVersements3);
     context.SaveChanges();
 
     Console.WriteLine("Création d'un calcul et versement OK");

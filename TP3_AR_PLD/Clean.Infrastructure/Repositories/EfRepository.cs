@@ -58,9 +58,9 @@ namespace Clean.Infrastructure.Repositories
             return await _CleanContext.Set<T>().ToListAsync();
         }
 
-        public Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
+        public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
         {
-            throw new NotImplementedException();
+            return await ApplySpecification(spec).ToListAsync();
         }
 
         public async Task<T> AddAsync(T entity)
