@@ -10,7 +10,13 @@ Console.WriteLine("Test dans la base de donnnées");
 
 //EcrireDansBD();
 //await LireDansBDAsync();
-await CritereRecherche();
+//await CritereRecherche();
+await TestService();
+
+static async Task TestService()
+{
+
+}
 
 static async Task CritereRecherche()
 {

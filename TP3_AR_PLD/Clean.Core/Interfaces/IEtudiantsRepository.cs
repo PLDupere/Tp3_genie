@@ -12,5 +12,6 @@ namespace Clean.Core.Interfaces
     {
         Etudiants GetByIdDossierEtudiants(int id);
         Task<Etudiants> GetByIdWithEtudiantsAsync(int id);
+        Task<Etudiants> GetByEtudiantWithCodePermanentAsync(string codePermanent);
     }
 }

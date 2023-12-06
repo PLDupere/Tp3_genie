@@ -17,11 +17,6 @@ C:\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\refint\Clean.Infrastructure.
 C:\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\Clean.Infrastructure.pdb
 C:\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\Clean.Infrastructure.genruntimeconfig.cache
 C:\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\ref\Clean.Infrastructure.dll
-C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\Clean.Infrastructure.csproj.AssemblyReference.cache
-C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\Clean.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\Clean.Infrastructure.AssemblyInfoInputs.cache
-C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\Clean.Infrastructure.AssemblyInfo.cs
-C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\Clean.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\bin\Debug\net6.0\Clean.Infrastructure.deps.json
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\bin\Debug\net6.0\Clean.Infrastructure.runtimeconfig.json
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\bin\Debug\net6.0\Clean.Infrastructure.dll
@@ -30,6 +25,11 @@ C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\bin\De
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\bin\Debug\net6.0\Clean.SharedKernel.dll
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\bin\Debug\net6.0\Clean.Core.pdb
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\bin\Debug\net6.0\Clean.SharedKernel.pdb
+C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\Clean.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\Clean.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\Clean.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\Clean.Infrastructure.AssemblyInfo.cs
+C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\Clean.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\Clean.Infrastructure.csproj.CopyComplete
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\Clean.Infrastructure.dll
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Infrastructure\obj\Debug\net6.0\refint\Clean.Infrastructure.dll

@@ -15,6 +15,11 @@ namespace Clean.Infrastructure.Repositories
         {
         }
 
+        public Task DeleteAsync(DemandeAideFinancieres demandeAideFinancieres)
+        {
+            throw new NotImplementedException();
+        }
+
         public DossierEtudiants GetByIdWithDossierEtudiants(int id)
         {
             return _CleanContext.DossierEtudiants

@@ -15,6 +15,13 @@ namespace Clean.Infrastructure.Repositories
         {
         }
 
+        public Task<Etudiants> GetByEtudiantWithCodePermanentAsync(string codePermanent)
+        {
+            return _CleanContext.Etudiants
+            .Include(r => r.CodePermanent)
+            .FirstOrDefaultAsync();
+        }
+
         public Etudiants GetByIdDossierEtudiants(int id)
         {
             return _CleanContext.Etudiants

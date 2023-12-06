@@ -1,8 +1,3 @@
-C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.csproj.AssemblyReference.cache
-C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.AssemblyInfoInputs.cache
-C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.AssemblyInfo.cs
-C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.csproj.CoreCompileInputs.cache
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\bin\Debug\net6.0\Clean.Console.exe
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\bin\Debug\net6.0\Clean.Console.deps.json
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\bin\Debug\net6.0\Clean.Console.runtimeconfig.json
@@ -61,6 +56,11 @@ C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\bin\Debug\net
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\bin\Debug\net6.0\Clean.Core.pdb
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\bin\Debug\net6.0\Clean.Infrastructure.pdb
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\bin\Debug\net6.0\Clean.SharedKernel.pdb
+C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.csproj.AssemblyReference.cache
+C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.AssemblyInfoInputs.cache
+C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.AssemblyInfo.cs
+C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.csproj.CoreCompileInputs.cache
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.csproj.CopyComplete
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\Clean.Console.dll
 C:\Users\pierl\Documents\GitPLD\Tp3_genie\TP3_AR_PLD\Clean.Console\obj\Debug\net6.0\refint\Clean.Console.dll
