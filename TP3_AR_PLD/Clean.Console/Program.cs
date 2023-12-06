@@ -8,19 +8,31 @@ Console.WriteLine("Test dans la base de donnnées");
 
 
 //EcrireDansBD();
-await LireDansBDAsync();
+//await LireDansBDAsync();
+await CritereRecherche();
+
+static async Task CritereRecherche()
+{
+    using (CleanContext context = new CleanContext())
+    {
+        // ici ***************************************************************************************************
+    }
+}
 
 static async Task LireDansBDAsync()
 {
     using (CleanContext context = new CleanContext())
     {
-        Console.WriteLine("Lire 1");
         IAsyncRepository<Etudiants> e = new EfRepository<Etudiants>(context);
-        Console.WriteLine("Lire 2");
         Etudiants etudiants = await e.GetByIdAsync(5);
-        Console.WriteLine("Lire 3");
         if (etudiants != null)
-            Console.WriteLine(etudiants.Nom + "!!");
+            Console.WriteLine("Nom étudiant : " + etudiants.Nom);
+        else Console.WriteLine("Etudiants introuvable");
+
+        IAsyncRepository<DossierEtudiants> d = new EfRepository<DossierEtudiants>(context);
+        DossierEtudiants dossierEtudiants = await d.GetByIdAsync(5);
+        if (dossierEtudiants != null)
+            Console.WriteLine("Dossier de l'étudiant : " + dossierEtudiants.AdresseCourriel);
         else Console.WriteLine("Etudiants introuvable");
     }
 }
