@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace Clean.Core.Interfaces
 {
-    public interface ICalculVersementsRepository : IRepository<CalculVersements>
+    public interface ICalculVersementsRepository : IRepository<CalculVersements>, IAsyncRepository<CalculVersements>
     {
         CalculVersements GetByIdWithCalculVersements(int id);
+
+        Task<CalculVersements> GetByIdWithCalculVersementsAsync(int id);
     }
 }

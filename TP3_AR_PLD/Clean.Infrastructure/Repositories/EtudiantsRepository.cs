@@ -22,7 +22,12 @@ namespace Clean.Infrastructure.Repositories
             .First();
         }
 
-
+        public Task<Etudiants> GetByIdWithEtudiantsAsync(int id)
+        {
+            return _CleanContext.Etudiants
+             .Include(r => r.Id)
+             .FirstOrDefaultAsync();
+        }
 
     }
 }

@@ -23,5 +23,12 @@ namespace Clean.Infrastructure.Repositories
              .First();
         }
 
+        public Task<CalculVersements> GetByIdWithCalculVersementsAsync(int id)
+        {
+            return _CleanContext.CalculVersements
+             .Include(r => r.Id)
+             .FirstOrDefaultAsync();
+        }
+
     }
 }

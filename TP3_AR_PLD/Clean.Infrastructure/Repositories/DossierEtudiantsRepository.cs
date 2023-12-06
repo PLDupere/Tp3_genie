@@ -21,5 +21,12 @@ namespace Clean.Infrastructure.Repositories
           .Include(r => r.Id)
           .First();
         }
+
+        public Task<DossierEtudiants> GetByIdWithDossierEtudiantsAsync(int id)
+        {
+            return _CleanContext.DossierEtudiants
+             .Include(r => r.Id)
+             .FirstOrDefaultAsync();
+        }
     }
 }

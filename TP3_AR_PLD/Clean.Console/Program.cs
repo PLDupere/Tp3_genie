@@ -1,13 +1,31 @@
 ﻿
 using Clean.Core.Entities;
 using Clean.Infrastructure;
+using Clean.Infrastructure.Repositories;
+using Clean.SharedKernel.Interfaces;
 
-Console.WriteLine("Création de code dans la base de donnnées");
+Console.WriteLine("Test dans la base de donnnées");
 
 
-Test1();
+//EcrireDansBD();
+await LireDansBDAsync();
 
- static void Test1()
+static async Task LireDansBDAsync()
+{
+    using (CleanContext context = new CleanContext())
+    {
+        Console.WriteLine("Lire 1");
+        IAsyncRepository<Etudiants> e = new EfRepository<Etudiants>(context);
+        Console.WriteLine("Lire 2");
+        Etudiants etudiants = await e.GetByIdAsync(5);
+        Console.WriteLine("Lire 3");
+        if (etudiants != null)
+            Console.WriteLine(etudiants.Nom + "!!");
+        else Console.WriteLine("Etudiants introuvable");
+    }
+}
+
+ static void EcrireDansBD()
  {
     // create context
     var context = new CleanContext();
@@ -57,4 +75,4 @@ Test1();
     Console.ReadKey();
     Console.WriteLine("Test compléter avec succes WOOHOO");
     Console.ReadKey();
-}
+ }

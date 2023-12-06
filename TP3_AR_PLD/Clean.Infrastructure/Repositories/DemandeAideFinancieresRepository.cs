@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Clean.Core;
 
 namespace Clean.Infrastructure.Repositories
 {
@@ -20,6 +21,13 @@ namespace Clean.Infrastructure.Repositories
             return _CleanContext.DemandeAideFinanciere
             .Include(r => r.Id)
             .First();
+        }
+
+        public Task<DemandeAideFinancieres> GetByIdWithDemandeAideFinancieresAsync(int id)
+        {
+            return _CleanContext.DemandeAideFinanciere
+             .Include(r => r.Id)
+             .FirstOrDefaultAsync();
         }
     }
 }
