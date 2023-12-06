@@ -14,7 +14,7 @@ namespace Clean.Core.Entities
 
         // Cle etrangere du dossier Etudians
         public int EtudiantsId { get; set; }
-        public Etudiants Etudiants { get; set; }
+        public Etudiants? Etudiants { get; set; }
         public string? AdresseDeCorrespondance { get; set; }
         public string? NumeroDeTelephonePrincipale { get; set; }
         public string? NumeroDeTelephoneSecondaire { get; set; }
@@ -28,5 +28,16 @@ namespace Clean.Core.Entities
         {
         }
 
+        public DossierEtudiants(string? adresseDeCorrespondance, string? numeroDeTelephonePrincipale, string? numeroDeTelephoneSecondaire, string? adresseCourriel, bool? citoyennte, string? codeImmigration, DateTime? dateObtentionStatusResidentPermanent, string? langueCorrespondance)
+        {
+            AdresseDeCorrespondance = adresseDeCorrespondance;
+            NumeroDeTelephonePrincipale = numeroDeTelephonePrincipale;
+            NumeroDeTelephoneSecondaire = numeroDeTelephoneSecondaire;
+            AdresseCourriel = adresseCourriel;
+            Citoyennte = citoyennte;
+            CodeImmigration = codeImmigration;
+            DateObtentionStatusResidentPermanent = dateObtentionStatusResidentPermanent;
+            LangueCorrespondance = langueCorrespondance;
+        }
     }
 }

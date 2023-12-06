@@ -22,16 +22,34 @@ namespace Clean.Core.Entities
         public int? AutresRevenus { get; set; }
         public int? RevenusPotentiels { get; set; }
 
-        // 1 DemandeAideFinanciere a 1 CalculVersements
-        //public CalculVersements CalculVersements { get; set; }
-        
+        // Clé étrangère
+        public int? EtudiantsId { get; set; }
+        public Etudiants? Etudiants { get; set; }
 
-        //Contructeur
+        // 1 DemandeAideFinanciere a n CalculVersements
+        public List<CalculVersements>? CalculVersements { get; set; }
+        public void AddCalculVersements(CalculVersements calculVersements)
+        {
+            CalculVersements.Add(calculVersements);
+        }
+
+
+        // Contructeur
         public DemandeAideFinancieres()
         {
         }
 
-
-
+        public DemandeAideFinancieres(string? nomEtablissementEnseignement, string? codeEtablissementEnseignement, string? codeDuProgramme, int? nombreDeCredits, string? etatMatrimonial, DateTime? dateDebutEtatMatrimonial, int? revenusEmploie, int? autresRevenus, int? revenusPotentiels)
+        {
+            NomEtablissementEnseignement = nomEtablissementEnseignement;
+            CodeEtablissementEnseignement = codeEtablissementEnseignement;
+            CodeDuProgramme = codeDuProgramme;
+            NombreDeCredits = nombreDeCredits;
+            EtatMatrimonial = etatMatrimonial;
+            DateDebutEtatMatrimonial = dateDebutEtatMatrimonial;
+            RevenusEmploie = revenusEmploie;
+            AutresRevenus = autresRevenus;
+            RevenusPotentiels = revenusPotentiels;
+        }
     }
 }

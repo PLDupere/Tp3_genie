@@ -13,21 +13,29 @@ namespace Clean.Core.Entities
         //Attributs
         public int Id { get; set; }
 
-        // Clé étrangere
-        public int DemandeAideFinanciereId { get; set; }
-        public DemandeAideFinancieres DemandeAideFinancieres { get; set; }
-
         public string? AnneeEnCours { get; set; }
 
-        public int[]? Montants = new int[12]; // 0 = janvier 1 = février ...
+        public int? Montants { get; set; }
 
-        public string[]? TypeVersement = new string[12]; // pret ou bourse
+        public string? TypeVersement { get; set; }
 
-        public DateTime[]? DateVersement = new DateTime[12]; // 0 = janvier 1 = février ...
+        public DateTime? DateVersement { get; set; }
+
+        // Clé étrangere
+        //public int? DemandeAideFinanciereId { get; set; }
+        public DemandeAideFinancieres? DemandeAideFinancieres { get; set; }
 
         //Constructeur
         public CalculVersements()
         {
+        }
+
+        public CalculVersements(string? anneeEnCours, int? montants, string? typeVersement, DateTime? dateVersement)
+        {
+            AnneeEnCours = anneeEnCours;
+            Montants = montants;
+            TypeVersement = typeVersement;
+            DateVersement = dateVersement;
         }
     }
 }

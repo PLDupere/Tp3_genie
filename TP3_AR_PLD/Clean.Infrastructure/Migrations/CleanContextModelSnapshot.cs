@@ -29,11 +29,17 @@ namespace Clean.Infrastructure.Migrations
                     b.Property<string>("AnneeEnCours")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DemandeAideFinanciereId")
-                        .HasColumnType("int");
+                    b.Property<DateTime?>("DateVersement")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("DemandeAideFinancieresId")
                         .HasColumnType("int");
+
+                    b.Property<int?>("Montants")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TypeVersement")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -130,7 +136,7 @@ namespace Clean.Infrastructure.Migrations
 
             modelBuilder.Entity("Clean.Core.Entities.Etudiants", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -161,7 +167,7 @@ namespace Clean.Infrastructure.Migrations
             modelBuilder.Entity("Clean.Core.Entities.CalculVersements", b =>
                 {
                     b.HasOne("Clean.Core.Entities.DemandeAideFinancieres", "DemandeAideFinancieres")
-                        .WithMany()
+                        .WithMany("CalculVersements")
                         .HasForeignKey("DemandeAideFinancieresId");
 
                     b.Navigation("DemandeAideFinancieres");
@@ -169,9 +175,11 @@ namespace Clean.Infrastructure.Migrations
 
             modelBuilder.Entity("Clean.Core.Entities.DemandeAideFinancieres", b =>
                 {
-                    b.HasOne("Clean.Core.Entities.Etudiants", null)
+                    b.HasOne("Clean.Core.Entities.Etudiants", "Etudiants")
                         .WithMany("DemandeAideFinancieres")
                         .HasForeignKey("EtudiantsId");
+
+                    b.Navigation("Etudiants");
                 });
 
             modelBuilder.Entity("Clean.Core.Entities.DossierEtudiants", b =>
@@ -183,6 +191,11 @@ namespace Clean.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Etudiants");
+                });
+
+            modelBuilder.Entity("Clean.Core.Entities.DemandeAideFinancieres", b =>
+                {
+                    b.Navigation("CalculVersements");
                 });
 
             modelBuilder.Entity("Clean.Core.Entities.Etudiants", b =>
