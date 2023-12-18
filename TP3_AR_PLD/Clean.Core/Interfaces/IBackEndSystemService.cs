@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clean.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,9 @@ namespace Clean.Core.Interfaces
 {
     public interface IBackEndSystemService
     {
-        //Question ???
-        Task SendRequestToBackEnd(Request request, string directory);
+        Task SendEtudiantsToBackEnd(Etudiants etudiants, string directory);
+        Task SendDemandeAideFinancieresToBackEnd(DemandeAideFinancieres demandeAideFinancieres, string directory);
+        Task SendDossierEtudiantsToBackEnd(DossierEtudiants dossierEtudiants, string directory);
+        Task SendCalculVersementToBackEnd(CalculVersements calculVersements, string directory);
     }
 }
