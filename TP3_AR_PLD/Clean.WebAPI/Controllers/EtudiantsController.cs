@@ -1,4 +1,10 @@
 ﻿
+using AutoMapper;
+using Clean.Core.Entities;
+using Clean.Core.Interfaces;
+using Clean.Infrastructure;
+using Clean.Infrastructure.Repositories;
+using Clean.SharedKernel.Interfaces;
 using Clean.WebAPI.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,75 +16,87 @@ namespace Clean.WebAPI.Controllers
     [Route("api/etudiants")]
     public class EtudiantsController : ControllerBase
     {
-        private readonly List<DemandeAideFinanciereDtos> _etudiants = new List<DemandeAideFinanciereDtos>();
 
-        // Endpoint pour récupérer tous les étudiants
-        [HttpGet]
-        public IActionResult GetEtudiants()
+        private readonly IEtudiantsService _etudiants;
+        private readonly IMapper _mapper;
+        public EtudiantsController(IEtudiantsService etudiantsService, IMapper mapper)
         {
-            return Ok(_etudiants);
+            _etudiants = etudiantsService;
+            _mapper = mapper;
+        }
+
+        [HttpPost("identification")]
+        public IActionResult Identification([FromBody] IdentificationDtos credentials)
+        {
+            var token = "tokentest123";
+            return Ok(new { token });
         }
 
         // Endpoint pour récupérer un étudiant par son ID
         [HttpGet("{id}")]
-        public IActionResult GetEtudiantById(int id)
+        public async Task<IActionResult> GetEtudiantById(int id)
         {
-            var etudiant = _etudiants.FirstOrDefault(e => e.Id == id);
+            var etudiant = await _etudiants.GetEtudianstById(id);
             if (etudiant == null)
             {
                 return NotFound($"Aucun étudiant trouvé avec l'ID {id}");
             }
+            var map = _mapper.Map<IEnumerable<EtudiantsDtos>>(etudiant);
 
-            return Ok(etudiant);
+            return Ok(map);
         }
-
+        
         // Endpoint pour créer un nouvel étudiant
         [HttpPost]
-        public IActionResult CreateEtudiant([FromBody] DemandeAideFinanciereDtos etudiantDto)
+        public async Task<IActionResult> CreateEtudiant([FromBody] Etudiants etudiant)
         {
-            if (etudiantDto == null)
+            if (etudiant == null)
             {
                 return BadRequest("Les données de l'étudiant ne peuvent pas être nulles");
             }
-            _etudiants.Add(etudiantDto);
+            await _etudiants.CreateEtudiants(etudiant);
 
-            return CreatedAtAction(nameof(GetEtudiantById), new { id = etudiantDto.Id }, etudiantDto);
+            return CreatedAtAction(nameof(GetEtudiantById), new { id = etudiant.Id }, etudiant);
         }
 
         // Endpoint pour mettre à jour les informations d'un étudiant
         [HttpPut("{id}")]
-        public IActionResult UpdateEtudiant(int id, [FromBody] DemandeAideFinanciereDtos etudiantDto)
+        public async Task<IActionResult> UpdateEtudiant(int id, [FromBody] Etudiants etudiant)
         {
-            var existingEtudiant = _etudiants.FirstOrDefault(e => e.Id == id);
+            var existingEtudiant = await _etudiants.GetEtudianstById(id);
             if (existingEtudiant == null)
             {
                 return NotFound($"Aucun étudiant trouvé avec l'ID {id}");
             }
 
             // Mettre à jour les propriétés de l'étudiant
-            existingEtudiant.Nom = etudiantDto.Nom;
-            existingEtudiant.Prenom = etudiantDto.Prenom;
-            existingEtudiant.NumeroAssuranceSociale = etudiantDto.NumeroAssuranceSociale;
-            existingEtudiant.DateDeNaissance = etudiantDto.DateDeNaissance;
-            existingEtudiant.CodePermanent = etudiantDto.CodePermanent;
-            existingEtudiant.MotDePasse = etudiantDto.MotDePasse;
+            existingEtudiant.Nom = etudiant.Nom;
+            existingEtudiant.Prenom = etudiant.Prenom;
+            existingEtudiant.NumeroAssuranceSociale = etudiant.NumeroAssuranceSociale;
+            existingEtudiant.DateDeNaissance = etudiant.DateDeNaissance;
+            existingEtudiant.CodePermanent = etudiant.CodePermanent;
+            existingEtudiant.MotDePasse = etudiant.MotDePasse;
+
+            await _etudiants.UpdateEtudiants(existingEtudiant);
 
             return Ok(existingEtudiant);
         }
 
         // Endpoint pour supprimer un étudiant par son ID
         [HttpDelete("{id}")]
-        public IActionResult DeleteEtudiant(int id)
+        public async Task<IActionResult> DeleteEtudiant(Etudiants etudiants)
         {
-            var etudiantToRemove = _etudiants.FirstOrDefault(e => e.Id == id);
+            var etudiantToRemove = await _etudiants.GetEtudianstById((int)etudiants.Id);
+
             if (etudiantToRemove == null)
             {
-                return NotFound($"Aucun étudiant trouvé avec l'ID {id}");
+                return NotFound($"Aucun étudiant trouvé avec l'ID {etudiants.Id}");
             }
 
-            _etudiants.Remove(etudiantToRemove);
+            await _etudiants.DeleteEtudiants(etudiantToRemove);
 
             return NoContent();
         }
+        
     }
 }

@@ -12,6 +12,6 @@ namespace Clean.Core.Interfaces
         Task<DossierEtudiants> GetDossierEtudiantsId(int etudiantId);
         Task<DossierEtudiants> CreateDossierEtudiants(DossierEtudiants dossierEtudiants);
         Task UpdateDossierEtudiants(DossierEtudiants dossierEtudiants);
-        Task DeleteDossierEtudiants(DemandeAideFinancieres demandeAideFinancieres);
+        Task DeleteDossierEtudiants(DossierEtudiants dossierEtudiants);
     }
 }

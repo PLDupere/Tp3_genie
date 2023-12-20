@@ -1,4 +1,6 @@
-﻿using Clean.Core.Entities;
+﻿using AutoMapper;
+using Clean.Core.Entities;
+using Clean.Core.Interfaces;
 using Clean.WebAPI.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,20 +13,20 @@ namespace Clean.WebAPI.Controllers
     [Route("api/dossierEtudiants")]
     public class DossierEtudiantsController : ControllerBase
     {
-        private readonly List<DossierEtudiantsDtos> _dossierEtudiants = new List<DossierEtudiantsDtos>();
 
-        // Endpoint pour récupérer tous les dossiers étudiants
-        [HttpGet]
-        public IActionResult GetDossierEtudiants()
+        private readonly IDossierEtudiantsService _dossierEtudiants;
+        private readonly IMapper _mapper;
+        public DossierEtudiantsController(IDossierEtudiantsService dossierEtudiants, IMapper mapper)
         {
-            return Ok(_dossierEtudiants);
+            _dossierEtudiants = dossierEtudiants;
+            _mapper = mapper;
         }
 
         // Endpoint pour récupérer un dossier étudiant par son ID
         [HttpGet("{id}")]
-        public IActionResult GetDossierEtudiantById(int id)
+        public async Task<IActionResult> GetDossierEtudiantById(int id)
         {
-            var dossier = _dossierEtudiants.FirstOrDefault(e => e.Id == id);
+            var dossier = _dossierEtudiants.GetDossierEtudiantsId(id);
             if (dossier == null)
             {
                 return NotFound($"Aucun dossier d'étudiant trouvé avec l'ID {id}");
@@ -35,52 +37,54 @@ namespace Clean.WebAPI.Controllers
 
         // Endpoint pour créer un nouveau dossier étudiant
         [HttpPost]
-        public IActionResult CreateDossierEtudiant([FromBody] DossierEtudiantsDtos dossierEtudiantDto)
+        public async Task<IActionResult> CreateDossierEtudiant([FromBody] DossierEtudiants dossierEtudiant)
         {
-            if (dossierEtudiantDto == null)
+            if (dossierEtudiant == null)
             {
                 return BadRequest("Les données de l'étudiant ne peuvent pas être nulles");
             }
-            _dossierEtudiants.Add(dossierEtudiantDto);
+            await _dossierEtudiants.CreateDossierEtudiants(dossierEtudiant);
 
-            return CreatedAtAction(nameof(GetDossierEtudiantById), new { id = dossierEtudiantDto.Id }, dossierEtudiantDto);
+            return CreatedAtAction(nameof(GetDossierEtudiantById), new { id = dossierEtudiant.Id }, dossierEtudiant);
         }
 
         // Endpoint pour mettre à jour les informations d'un dossier étudiant
         [HttpPut("{id}")]
-        public IActionResult UpdateDossierEtudiant(int id, [FromBody] DossierEtudiantsDtos dossierEtudiantDto)
+        public async Task<IActionResult> UpdateDossierEtudiant([FromBody] DossierEtudiants dossierEtudiant)
         {
-            var existingDossierEtudiant = _dossierEtudiants.FirstOrDefault(e => e.Id == id);
+            var existingDossierEtudiant = await _dossierEtudiants.GetDossierEtudiantsId(dossierEtudiant.Id);
+
             if (existingDossierEtudiant == null)
             {
-                return NotFound($"Aucun dossier étudiant trouvé avec l'ID {id}");
+                return NotFound($"No student record found with ID {dossierEtudiant.Id}");
             }
 
-            // Mettre à jour les propriétés de l'étudiant
-            existingDossierEtudiant.EtudiantsId = dossierEtudiantDto.EtudiantsId;
-            existingDossierEtudiant.AdresseDeCorrespondance = dossierEtudiantDto.AdresseDeCorrespondance;
-            existingDossierEtudiant.NumeroDeTelephonePrincipale = dossierEtudiantDto?.NumeroDeTelephonePrincipale;
-            existingDossierEtudiant.NumeroDeTelephoneSecondaire = dossierEtudiantDto.NumeroDeTelephoneSecondaire;
-            existingDossierEtudiant.AdresseCourriel = dossierEtudiantDto.AdresseCourriel;
-            existingDossierEtudiant.Citoyennte = dossierEtudiantDto.Citoyennte;
-            existingDossierEtudiant.CodeImmigration = dossierEtudiantDto.CodeImmigration;
-            existingDossierEtudiant.DateObtentionStatusResidentPermanent = dossierEtudiantDto.DateObtentionStatusResidentPermanent;
-            existingDossierEtudiant.LangueCorrespondance = dossierEtudiantDto.LangueCorrespondance;
+            existingDossierEtudiant.EtudiantsId = dossierEtudiant.EtudiantsId;
+            existingDossierEtudiant.AdresseDeCorrespondance = dossierEtudiant.AdresseDeCorrespondance;
+            existingDossierEtudiant.NumeroDeTelephonePrincipale = dossierEtudiant?.NumeroDeTelephonePrincipale;
+            existingDossierEtudiant.NumeroDeTelephoneSecondaire = dossierEtudiant.NumeroDeTelephoneSecondaire;
+            existingDossierEtudiant.AdresseCourriel = dossierEtudiant.AdresseCourriel;
+            existingDossierEtudiant.Citoyennte = dossierEtudiant.Citoyennte;
+            existingDossierEtudiant.CodeImmigration = dossierEtudiant.CodeImmigration;
+            existingDossierEtudiant.DateObtentionStatusResidentPermanent = dossierEtudiant.DateObtentionStatusResidentPermanent;
+            existingDossierEtudiant.LangueCorrespondance = dossierEtudiant.LangueCorrespondance;
 
+            await _dossierEtudiants.UpdateDossierEtudiants(existingDossierEtudiant);
             return Ok(existingDossierEtudiant);
         }
 
         // Endpoint pour supprimer un étudiant par son ID
         [HttpDelete("{id}")]
-        public IActionResult DeleteEtudiant(int id)
+        public async Task<IActionResult> DeleteDossierEtudiant(DossierEtudiants dossierEtudiants)
         {
-            var etudiantToRemove = _dossierEtudiants.FirstOrDefault(e => e.Id == id);
-            if (etudiantToRemove == null)
+            var dossierEtudiantToRemove = await _dossierEtudiants.GetDossierEtudiantsId(dossierEtudiants.Id);
+
+            if (dossierEtudiantToRemove == null)
             {
-                return NotFound($"Aucun dossier étudiant trouvé avec l'ID {id}");
+                return NotFound($"No student record found with ID {dossierEtudiants.Id}");
             }
 
-            _dossierEtudiants.Remove(etudiantToRemove);
+            await _dossierEtudiants.DeleteDossierEtudiants(dossierEtudiants);
 
             return NoContent();
         }

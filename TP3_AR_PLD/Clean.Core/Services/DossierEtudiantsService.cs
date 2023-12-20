@@ -31,6 +31,11 @@ namespace Clean.Core.Services
             await _DossierEtudiantsRepository.DeleteAsync(demandeAideFinancieres);
         }
 
+        public Task DeleteDossierEtudiants(DossierEtudiants dossierEtudiants)
+        {
+            return _DossierEtudiantsRepository.DeleteAsync(dossierEtudiants);
+        }
+
         public async Task<DossierEtudiants> GetDossierEtudiantsId(int etudiantId)
         {
             return await _DossierEtudiantsRepository.GetByIdAsync(etudiantId);
